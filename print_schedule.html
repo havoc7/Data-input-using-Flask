@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Schedule</title>
+</head>
+<body>
+    <h1>Print Schedule</h1>
+
+    <form action="/print_schedule" method="post">
+        <label for="print_date">Select a date:</label>
+        <input type="date" id="print_date" name="print_date" required>
+
+        <label for="print_time">Select a time:</label>
+        <input type="time" id="print_time" name="print_time" required>
+
+        <input type="submit" value="Schedule Print">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
